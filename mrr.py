@@ -1,3 +1,5 @@
+#TensorFlow 2 implementation of Mean Reciprocal Rank(MRR) metric.
+
 import tensorflow as tf
 
 def mrr_fn(y_true, y_pred):
