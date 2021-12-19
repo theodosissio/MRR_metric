@@ -1,12 +1,15 @@
-#TensorFlow 2 implementation of Mean Reciprocal Rank(MRR) metric.
+# TensorFlow 2 implementation of Mean Reciprocal Rank(MRR) metric.
 
 import tensorflow as tf
 
+
 def mrr_fn(y_true, y_pred):
+    # Function to calculate MRR.
     results_sorted = tf.math.top_k(y_pred, k=tf.shape(y_pred)[1], sorted=True)[1]
     positions = tf.where(tf.equal(results_sorted, tf.cast(y_true, dtype=tf.int32)))[:, 1]
     ranks = 1 / (positions + 1)
     return ranks
+
 
 class MeanReciprocalRank(tf.keras.metrics.Metric):
 
