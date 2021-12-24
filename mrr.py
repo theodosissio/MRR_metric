@@ -12,6 +12,7 @@ def mrr_fn(y_true, y_pred):
 
 
 class MeanReciprocalRank(tf.keras.metrics.Metric):
+# Class to calculate MRR.
 
     def __init__(self, name='mrr', **kwargs):
         super(MeanReciprocalRank, self).__init__(name=name, **kwargs)
